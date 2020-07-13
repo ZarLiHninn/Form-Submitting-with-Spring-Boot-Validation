@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Result</title>
+</head>
+<body>
+	<div th:if="${result != null}">
+		<h1>Result</h1>
+		<div>
+			<p>
+				Student Name : <span th:text="${result.name}"></span>
+			</p>
+		</div>
+		<div>
+			<p>
+				Age : <span th:text="${result.age}"></span>
+			</p>
+		</div>
+		<div>
+			<p>
+				Email : <span th:text="${result.email}"></span>
+			</p>
+		</div>
+		<div>
+			<p>
+				Date of Birth : <span th:text="${result.birthDate}"></span>
+			</p>
+		</div>
+		<div>
+			<p>Subjects</p>
+			<ul>
+				<li th:each="sub : ${result.subjects}" th:text="${sub}"></li>
+			</ul>
+		</div>
+		<div>
+			<p>
+				Gender : <span th:text="${result.gender}"></span>
+			</p>
+		</div>
+	</div>
+	<a th:href="@{/back}">Back</a>
+</body>
+</html>
