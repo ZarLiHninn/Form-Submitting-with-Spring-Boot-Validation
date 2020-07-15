@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8" />
-<title>Form_Registration</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script
-	src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-<script>
-	$(function() {
-	    $("#datepicker").datepicker({dateFormat:"yy-mm-dd"});
-	});
-</script>
-<style>
-	.error{
-	color:red;
-	}
-</style>
-</head>
-<body>
-	<div class="container">
-		<h1>Form Registration</h1>
-        <form th:action="@{/result}" th:object="${student}" method="post">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Form_Registration</title>
+      <link rel="stylesheet"
+         href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script
+         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+      <script>
+         $(function() {
+             $("#datepicker").datepicker({dateFormat:"yy-mm-dd"});
+         });
+      </script>
+      <style>
+         .error{
+         color:red;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <h1>Form Registration</h1>
+         <form th:action="@{/result}" th:object="${student}" method="post">
             <div class="form-group">
-				<label>Student Name</label> <input class="form-control" type="text"
-					th:field="*{name}" />
-				<span class="error" th:if="${#fields.hasErrors('name')}"
-					th:errors="*{name}">Name Error</span>
-			</div>
-			<div class="form-group">
-				<label>Age</label> <input class="form-control" type="text"
-					th:field="*{age}" />
-				<span class="error" th:if="${#fields.hasErrors('age')}"
-					th:errors="*{age}">Age Error</span>
-			</div>
-			<div class="form-group">
-				<label>Email</label> <input class="form-control" type="text"
-					th:field="*{email}" />
-				<span class="error" th:if="${#fields.hasErrors('email')}"
-					th:errors="*{email}">Email Error</span>
-			</div>
-			<div class="form-group">
-				<label>BirthDate</label> <input class="form-control" type="text"
-					id="datepicker" th:field="*{birthDate}">
-			</div>
-			<div>
-				<p>Subjects</p>
-				<span th:each="sub: ${subject_value}"> <input type="checkbox"
-					th:field="*{subjects}" th:value="${sub}" /> <label
-					th:text="${sub}">Subjects</label>
-				</span>
-			</div>
-			<div>
-				<p>Gender</p>
-				<span th:each="gen: ${gender_value}"> <input type="radio"
-					th:field="*{gender}" th:value="${gen}" /> <label th:text="${gen}">Gender</label>
-				</span>
-			</div>
-			<input type="submit" value="Send" />
-		</form>
-	</div>
-</body>
+               <label>Student Name</label> <input class="form-control" type="text"
+                  th:field="*{name}" />
+               <span class="error" th:if="${#fields.hasErrors('name')}"
+                  th:errors="*{name}">Name Error</span>
+            </div>
+            <div class="form-group">
+               <label>Age</label> <input class="form-control" type="text"
+                  th:field="*{age}" />
+               <span class="error" th:if="${#fields.hasErrors('age')}"
+                  th:errors="*{age}">Age Error</span>
+            </div>
+            <div class="form-group">
+               <label>Email</label> <input class="form-control" type="text"
+                  th:field="*{email}" />
+               <span class="error" th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}">Email Error</span>
+            </div>
+            <div class="form-group">
+               <label>BirthDate</label> <input class="form-control" type="text"
+                  id="datepicker" th:field="*{birthDate}">
+            </div>
+            <div>
+               <p>Subjects</p>
+               <span th:each="sub: ${subject_value}"> <input type="checkbox"
+                  th:field="*{subjects}" th:value="${sub}" /> <label
+                  th:text="${sub}">Subjects</label>
+               </span>
+            </div>
+            <div>
+               <p>Gender</p>
+               <span th:each="gen: ${gender_value}"> <input type="radio"
+                  th:field="*{gender}" th:value="${gen}" /> <label th:text="${gen}">Gender</label>
+               </span>
+            </div>
+            <input type="submit" value="Send" />
+         </form>
+      </div>
+   </body>
 </html>
