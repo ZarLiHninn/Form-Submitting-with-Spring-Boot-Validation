@@ -5,74 +5,84 @@ import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Positive;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class Student {
-	
+
     @NotEmpty(message = "{validation.name.NotEmpty}")
-	@Size(min = 2, max = 50, message = "{validation.name.Size}")
-	private String name;
+    @Size(min = 2, max = 50, message = "{validation.name.Size}")
+    private String name;
 
-	@Max(value = 18, message = "{validation.age.Minimum}")
-	private int age;
-	
-	@Email(message = "{validation.email.Type}")
-	private String email;
-	
-	private List<String> subjects;
-	
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private LocalDate birthDate;
+    @NotNull(message = "{validation.age.NotNull}")
+    @Positive(message = "{validation.age.Positive}")
+    @Max(value = 18, message = "{validation.age.Maximum}")
+    private Integer age;
 
-	private String gender;
+    @NotEmpty(message = "{validation.email.NotEmpty}")
+    @Email(message = "{validation.email.Type}")
+    private String email;
 
-	public String getName() {
-		return name;
-	}
+    @NotEmpty(message = "{validation.subjects.NotEmpty}")
+    private List <String> subjects;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @NotNull(message = "{validation.birthDate.NotNull}")
+    @Past(message = "{validation.birthDate.Past}")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate birthDate;
 
-	public int getAge() {
-		return age;
-	}
+    @NotEmpty(message = "{validation.gender.NotEmpty}")
+    private String gender;
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public Integer getAge() {
+        return age;
+    }
 
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public String getGender() {
-		return gender;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
 
-	public List<String> getSubjects() {
-		return subjects;
-	}
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
 
-	public void setSubjects(List<String> subjects) {
-		this.subjects = subjects;
-	}
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public List <String> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(List <String> subjects) {
+        this.subjects = subjects;
+    }
 
 }
