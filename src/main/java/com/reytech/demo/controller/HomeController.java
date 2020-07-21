@@ -13,7 +13,7 @@ import com.reytech.demo.model.Student;
 @Controller
 public class HomeController {
 
-	@GetMapping("/")
+	@GetMapping("/form")
 	public String showForm(Model model) {
 		Student student = new Student();
 		model.addAttribute("student", student);
@@ -22,7 +22,7 @@ public class HomeController {
 		return "form";
 	}
 
-	@PostMapping("/result")
+	@PostMapping("/form/result")
 	public String submitForm(@Valid Student student, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("student", student);
@@ -37,7 +37,7 @@ public class HomeController {
 
 	@GetMapping("/back")
 	public String backHome() {
-		return "redirect:/";
+		return "redirect:/form";
 	}
 
 }

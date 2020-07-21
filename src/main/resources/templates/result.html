@@ -1,44 +1,57 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8" />
-<title>Result</title>
-</head>
-<body>
-	<div th:if="${result != null}">
-		<h1>Result</h1>
-		<div>
-			<p>
-				Student Name : <span th:text="${result.name}"></span>
-			</p>
-		</div>
-		<div>
-			<p>
-				Age : <span th:text="${result.age}"></span>
-			</p>
-		</div>
-		<div>
-			<p>
-				Email : <span th:text="${result.email}"></span>
-			</p>
-		</div>
-		<div>
-			<p>
-				Date of Birth : <span th:text="${result.birthDate}"></span>
-			</p>
-		</div>
-		<div>
-			<p>Subjects</p>
-			<ul>
-				<li th:each="sub : ${result.subjects}" th:text="${sub}"></li>
-			</ul>
-		</div>
-		<div>
-			<p>
-				Gender : <span th:text="${result.gender}"></span>
-			</p>
-		</div>
-	</div>
-	<a th:href="@{/back}">Back</a>
-</body>
+   <head>
+      <meta charset="UTF-8" />
+      <title>Result</title>
+      <link rel="stylesheet"
+         href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+      <link rel="stylesheet"
+         href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+      <script
+         src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <div th:if="${result != null}" class="container">
+         <h1>Result</h1>
+         <table class="table table-bordered">
+            <tr>
+               <th>Title</th>
+               <th>Value</th>
+            </tr>
+            <tr>
+               <td>Student Name</td>
+               <td><span th:text="${result.name}"></span></td>
+            </tr>
+            <tr>
+               <td>Age</td>
+               <td><span th:text="${result.age}"></span></td>
+            </tr>
+            <tr>
+               <td>Email</td>
+               <td><span th:text="${result.email}"></span></td>
+            </tr>
+            <tr>
+               <td>Date of Birth</td>
+               <td><span th:text="${result.birthDate}"></span></td>
+            </tr>
+            <tr>
+               <td>Subjects</td>
+               <td>
+                  <ul>
+                     <li th:each="sub : ${result.subjects}" th:text="${sub}"></li>
+                  </ul>
+               </td>
+            </tr>
+            <tr>
+               <td>Gender</td>
+               <td><span th:text="${result.gender}"></span></td>
+            </tr>
+         </table>
+      </div>
+      <div class="container">
+         <a th:href="@{/back}">Back</a>
+      </div>
+   </body>
 </html>
